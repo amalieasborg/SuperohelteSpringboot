@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rediger Karakter</title>
+    <!-- Side-titel, der vises i browserens fane -->
+</head>
+<body>
+
+<h1>Rediger karakter</h1>
+<!-- Overskrift for siden -->
+
+<!-- Formular for redigering af sprogdata. Thymeleaf bruges til at binde formularfeltet til det eksisterende sprogobjekt. -->
+<form action="#" th:action="@{/marvelcharacter/save}" th:object="${marvelcharacter}" method="post">
+    <!-- Skjult felt for sprog-ID, som ikke behøver at blive ændret af brugeren -->
+    <input type="hidden" th:field="*{marvelcharacter.id}" />
+
+    <!-- Inputfelt for navnet på karakteren -->
+    <label for="name">Navn:</label>
+    <input type="text" id="name" th:field="*{marvelcharacter.name}" />
+
+    <!-- Inputfelt for alias -->
+    <label for="alias">Alias:</label>
+    <input type="text" id="alias" th:field="*{marvelcharacter.alias}" />
+
+    <!-- Inputfelt for powers -->
+    <label for="powers">Powers:</label>
+    <input type="text" id="powers" th:field="*{marvelcharacter.powers}" />
+
+    <!-- Inputfelt for alignment -->
+    <label for="alignment">Alignment:</label>
+    <input type="text" id="alignment" th:field="*{marvelcharacter.alignment}" />
+
+    <!-- Submit-knap for at gemme de redigerede oplysninger -->
+    <button type="submit">Opdater</button>
+</form>
+
+<!-- Link til at vende tilbage til listen over programmeringssprog -->
+<a href="/">Tilbage til listen</a>
+
+</body>
+</html>

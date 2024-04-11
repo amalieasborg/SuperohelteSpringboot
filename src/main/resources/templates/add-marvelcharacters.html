@@ -12,27 +12,27 @@
 
 <!-- Formular til tilføjelse af et nyt programmeringssprog. Thymeleaf bruges til at håndtere dataoverførslen mellem server og klient. -->
 <form action="#" th:action="@{/marvelcharacters/save}" th:object="${marvelcharacter}" method="post">
-    <!-- Inputfelt for navnet på det nye programmeringssprog -->
+    <!-- Inputfelt for navnet på den nye karakter -->
     <label for="name">Navn:</label>
-    <input type="text" id="name" th:field="*{name}" />
+    <input type="text" id="name" th:field="*{Marvelcharacter.name}" />
 
-    <!-- Inputfelt for udgivelsesåret for det nye programmeringssprog -->
-    <label for="releaseYear">Udgivelsesår:</label>
-    <input type="number" id="releaseYear" th:field="*{releaseYear}" />
+    <!-- Inputfelt for alias for den nye karakter -->
+    <label for="alias">Alias:</label>
+    <input type="text" id="alias" th:field="*{Marvelcharacter.alias}" />
 
-    <!-- Inputfelt for skaberen af det nye programmeringssprog -->
-    <label for="creator">Skaber:</label>
-    <input type="text" id="creator" th:field="*{creator}" />
+    <!-- Inputfelt for powers for den nye karakter -->
+    <label for="powers">Powers:</label>
+    <input type="text" id="powers" th:field="*{Marvelcharacter.powers}" />
 
-    <!-- Inputfelt for paradigmet for det nye programmeringssprog -->
-    <label for="paradigm">Paradigme:</label>
-    <input type="text" id="paradigm" th:field="*{paradigm}" />
+    <!-- Inputfelt for alignment for den nye karakter -->
+    <label for="alignment">Alignment:</label>
+    <input type="text" id="alignment" th:field="*{Marvelcharacter.alignment}" />
 
     <!-- Submit-knap for at sende formular data til serveren for behandling og tilføjelse af det nye sprog til databasen -->
     <button type="submit">Gem</button>
 </form>
 
-<!-- Link til at vende tilbage til listen over programmeringssprog -->
+<!-- Link til at vende tilbage til listen over karaktere -->
 <a href="/">Tilbage til listen</a>
 
 </body>

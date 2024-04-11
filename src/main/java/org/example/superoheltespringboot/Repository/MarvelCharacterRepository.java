@@ -4,12 +4,12 @@ import org.example.superoheltespringboot.Model.MarvelCharacter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Repository
 public class MarvelCharacterRepository {
     private final JdbcTemplate jdbcTemplate;
     private String sql;

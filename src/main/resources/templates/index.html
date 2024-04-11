@@ -1,0 +1,49 @@
+<!-- Denne HTML-fil anvender Thymeleaf-template engine for at gøre det muligt at integrere
+dynamiske data (som en liste over programmeringssprog) ind i HTML -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste over MarvelCharacters</title>
+    <!-- Grundlæggende opsætning med meta-tag og titel -->
+</head>
+<body>
+
+<h1>Programmeringssprog</h1>
+
+<!-- Link til at tilføje et nyt sprog -->
+<a href="/marvelcharacter/add">Tilføj ny karakter</a>
+
+<!-- Starten af tabellen for at vise karaktere -->
+<table>
+    <thead>
+    <tr>
+        <!-- Kolonneoverskrifter for tabellen -->
+        <th>Navn</th>
+        <th>Alias</th>
+        <th>Powers</th>
+        <th>Alignment</th>
+        <th>Handlinger</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterer gennem sprogliste og vis hver sprog -->
+    <tr th:each="marvelcharacter : ${marvelcharacters}">
+        <!-- Viser værdier for hvert sprog fra listen -->
+        <td th:text="${marvelcharacter.name}">Navn</td>
+        <td th:text="${marvelcharacter.alias}">Alias</td>
+        <td th:text="${marvelcharacter.powers}">Powers</td>
+        <td th:text="${marvelcharacter.alignment}">Alignment</td>
+        <td>
+            <!-- Link til at redigere en karakter -->
+            <a th:href="@{/Marvelcharacter/edit/{id}(id=${marvelcharacter.id})}">Rediger</a>
+            <!-- Link til at slette en karakter -->
+            <a th:href="@{/Marvelcharacter/delete/{id}(id=${marvelcharacter.id})}" onclick="return confirm('Er du sikker på, at du vil slette denne karakter?');">Slet</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
